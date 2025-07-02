@@ -8,7 +8,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link rel="pingback" href="https://badlandscowboytack.com/xmlrpc.php">
-	<title>Cadlands – Home of the Hookin’ Halter®</title>
+	<link rel="stylesheet" href="css/style.css"> <!-- Custom CSS file for styling CC -->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Stardos+Stencil:wght@400;700&display=swap"
+		rel="stylesheet"><!-- Western fonts for headings and body text CC -->
+	<title>Badlands – Home of the Hookin’ Halter®</title>
 	<meta name="robots" content="max-image-preview:large">
 	<style>
 		img:is([sizes="auto" i], [sizes^="auto," i]) {
@@ -2411,21 +2414,23 @@
 
 
 	<!-- Popup Overlay -->
-	<div id="popup"
-		style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center;">
-		<div
-			style="background: white; padding: 2rem; border-radius: 8px; max-width: 400px; width: 80%; position: relative;">
-			<button id="closePopup"
-				style="position: absolute; top: 0.5rem; right: 0.5rem; background: transparent; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+	<div id="popup">
+		<div>
+			<button id="closePopup" class="close-btn">&times;</button>
 			<h2>Join the Badlands Crew</h2>
 			<p>Sign up for updates and special offers!</p>
 			<form id="popupForm">
-				<input type="text" name="name" placeholder="Your Name" required
-					style="width: 100%; margin-bottom: 0.5rem;" />
-				<input type="email" name="email" placeholder="Your Email" required
-					style="width: 100%; margin-bottom: 0.5rem;" />
-				<button type="submit" style="width: 100%; padding: 0.5rem;">Sign Up</button>
+				<input type="text" name="name" placeholder="Your Name" required>
+				<input type="email" name="email" placeholder="Your Email" required>
+				<button type="submit">Sign Up</button>
 			</form>
+		</div>
+	</div>
+
+	<div id="thankYouMessage">
+		<div>
+			<h2>Thanks for joining our round up!</h2>
+			<button id="closeThankYou">Close</button>
 		</div>
 	</div>
 

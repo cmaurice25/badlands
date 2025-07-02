@@ -3857,3 +3857,85 @@ body.dark .wc-tabs .nav-tabs>li>a:hover {
 .peony .pp_social {
     display: none;
 }
+
+/* === Popup styles === */
+#popup, #thankYouMessage {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease;
+}
+
+#popup > div,
+#thankYouMessage > div {
+  position: relative; /* ensure close button positions to this box */
+  box-sizing: border-box; /* ensure padding doesn't affect width */
+  background: #fff8f0; /* warm cream */
+  border: 2px solid #7b3f00; /* deep brown */
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: 'Roboto', sans-serif;
+}
+
+#popup h2,
+#thankYouMessage h2 {
+  font-family: 'Stardos Stencil', cursive;
+  color: #7b3f00;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+#popup p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+#popup form input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+#popup form button,
+#thankYouMessage button {
+  display: block;
+  margin: 0 auto;
+  background: #a0522d; /* saddle brown */
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#popup form button:hover,
+#thankYouMessage button:hover {
+  background: #d2691e;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #7b3f00;
+  cursor: pointer;
+}
