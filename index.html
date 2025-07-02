@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <!-- saved from url=(0031)https://badlandscowboytack.com/ -->
 <html lang="en-US" class="no-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	
+	<style>#popup, #thankYouMessage {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: none; /* Will be set to flex in script when showing */
+}</style>
 	<meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
@@ -1221,9 +1225,12 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/badlandscowboytack.com\/w
 <script type="text/javascript" src="./Badlands – Home of the Hookin’ Halter®_files/frontend(1).min.js" id="elementor-pro-frontend-js"></script>
 <script type="text/javascript" src="./Badlands – Home of the Hookin’ Halter®_files/elements-handlers.min.js" id="pro-elements-handlers-js"></script><svg style="display: none;" class="e-font-icon-svg-symbols"></svg>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'958940ae28ec9a5b',t:'MTc1MTQwODAyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;" src="./Badlands – Home of the Hookin’ Halter®_files/saved_resource.html"></iframe>
+
+
 <!-- Popup Overlay -->
 <div id="popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center;">
-  <div style="background: white; padding: 2rem; border-radius: 8px; max-width: 400px; width: 80%;">
+  <div style="background: white; padding: 2rem; border-radius: 8px; max-width: 400px; width: 80%; position: relative;">
+    <button id="closePopup" style="position: absolute; top: 0.5rem; right: 0.5rem; background: transparent; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
     <h2>Join the Badlands Crew</h2>
     <p>Sign up for updates and special offers!</p>
     <form id="popupForm">
@@ -1235,16 +1242,38 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/badlandscowboytack.com\/w
 </div>
 
 <script>
-  // Show popup on page load
+  function showWithFade(element) {
+    element.style.display = 'flex';
+    requestAnimationFrame(() => {
+      element.style.opacity = '1';
+    });
+  }
+
+  function hideWithFade(element) {
+    element.style.opacity = '0';
+    setTimeout(() => {
+      element.style.display = 'none';
+    }, 500); // match transition time
+  }
+
   window.addEventListener('load', function() {
-    document.getElementById('popup').style.display = 'flex';
+    setTimeout(function() {
+      showWithFade(document.getElementById('popup'));
+    }, 2000);
   });
 
-  // Handle form submission
   document.getElementById('popupForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent page reload
-    alert('Thanks for signing up, ' + this.name.value + '!');
-    document.getElementById('popup').style.display = 'none';
+    event.preventDefault();
+    hideWithFade(document.getElementById('popup'));
+    showWithFade(document.getElementById('thankYouMessage'));
+  });
+
+  document.getElementById('closePopup').addEventListener('click', function() {
+    hideWithFade(document.getElementById('popup'));
+  });
+
+  document.getElementById('closeThankYou').addEventListener('click', function() {
+    hideWithFade(document.getElementById('thankYouMessage'));
   });
 </script>
 </body></html>
